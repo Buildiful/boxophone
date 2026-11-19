@@ -2,9 +2,9 @@
 
 ## Branding & repository
 
-- [x] Uses official unified Buildiful® logo through the existing homepage asset URL.
-- [x] Uses official unified favicon URLs (ICO, 32 px, 16 px, Apple touch).
-- [x] Contains original Boxophone artwork as SVG and PNG.
+- [x] Uses bundled official unified Buildiful® header logo supplied with this release.
+- [x] Uses bundled official unified Buildiful® favicon files (ICO, 32 px, 16 px, Apple touch) referenced by both app and privacy pages.
+- [x] Does not include or reference the yellow Boxophone promotional artwork as an app favicon.
 - [x] Includes `.gitignore` and `.nojekyll`.
 - [x] MIT source license and explicit trademark exclusion.
 - [x] Project comments, metadata, README, filenames, and public-facing UI have no campaign schedule references or numbered release identifiers.

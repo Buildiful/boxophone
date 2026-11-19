@@ -1,13 +1,13 @@
 # Brand assets
 
-Boxophone uses the same live official Buildiful® logo and unified favicon asset URLs as the Buildiful homepage:
+Boxophone uses the **official unified Buildiful® favicon set**, supplied with this release, just like the other Buildiful browser tools. All asset references are local and relative, so deployment under `/boxophone/` works without relying on remote favicon files.
 
-- `https://buildiful.github.io/assets/buildiful-logo-white.png`
-- `https://buildiful.github.io/assets/favicon.ico`
-- `https://buildiful.github.io/assets/favicon-32x32.png`
-- `https://buildiful.github.io/assets/favicon-16x16.png`
-- `https://buildiful.github.io/assets/apple-touch-icon.png`
+- `assets/buildiful-logo-white.png` — official Buildiful® header logo.
+- `assets/favicon.ico` — shared Buildiful® browser favicon.
+- `assets/favicon-32x32.png` — shared 32×32 browser icon.
+- `assets/favicon-16x16.png` — shared 16×16 browser icon.
+- `assets/apple-touch-icon.png` — shared 180×180 touch icon.
 
-These paths were verified against the homepage repository. The public app references them directly to guarantee that the official branding stays consistent without distributing alternate approximations. If you prefer an independent fork, use the originals from the organization homepage repository's `assets/` folder, then change the five URLs in `index.html` to `./assets/...` relative URLs.
+Both `index.html` and `privacy.html` reference the shared favicon files via `./assets/...`. The standalone Boxophone app does **not** use a yellow Boxophone favicon. The separate yellow Boxophone artwork is only for the tool catalog and announcement cards, managed outside this public app repository.
 
-The original Boxophone icon is provided separately in `assets/boxophone-tool-icon.svg` and `assets/boxophone-tool-icon-256.png`. Buildiful trademarks are not included in the software's MIT license.
+The Buildiful® name, logo, and related trademarks are not included in the software's MIT license.

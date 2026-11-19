@@ -51,7 +51,7 @@ The footer’s GitHub link points to `https://github.com/Buildiful/boxophone`. K
 
 ### Brand assets
 
-The site references the **existing official Buildiful® logo and unified favicon set** from `https://buildiful.github.io/assets/`, verified against the official homepage repository. This means the official image stays synchronized with existing tools, but requires that published Buildiful site to remain available. If a fully self-contained deployment is desired, download those five files from the Buildiful homepage `assets/` directory and replace their absolute URLs in `index.html` with paths under this repository's `assets/`. See `docs/BRAND_ASSETS.md`. The dedicated Boxophone tool icon in `assets/` is part of this pack.
+The application bundles the **official Buildiful® logo and unified favicon files**, supplied with the release, under `assets/`. Both `index.html` and `privacy.html` reference these shared brand assets with local `./assets/` paths. This ensures Boxophone uses the same Buildiful® tab icon as the other tools even when the homepage is unreachable. The separate yellow Boxophone promotional icon belongs only in announcement cards or the tool catalog; it is not an application favicon and is not bundled here. See `docs/BRAND_ASSETS.md`.
 
 ## Analytics and privacy
 
@@ -65,11 +65,11 @@ The shared GA4 measurement ID `G-TG14RBXLTF` is configured with an **explicit op
 - `src/recorder.js` — in-browser Standard MIDI File export.
 - `src/app.js` — UI, computer/touch controls, demo, practice.
 - `buildiful-analytics-consent.js` — permission-first GA4 integration.
-- `assets/boxophone-tool-icon.svg`, `assets/boxophone-tool-icon-256.png` — editable and raster tool icons.
+- `assets/` — official Buildiful® logo and favicon files (ICO, 16×16 PNG, 32×32 PNG, 180×180 Apple touch icon).
 - `privacy.html`, `LICENSE`, `TRADEMARKS.md`, `CONTRIBUTING.md`, `docs/QA_CHECKLIST.md` — public-release documents.
 
 ## License
 
-The original source code and original Boxophone tool icon are MIT licensed. The Buildiful® name, official logo, and trademarks are excluded from this license. See `LICENSE` and `TRADEMARKS.md`.
+The original source code is MIT licensed. The Buildiful® name, official logo, favicon artwork, and trademarks are excluded from this license. See `LICENSE` and `TRADEMARKS.md`.
 
 Built by Buildiful®.
