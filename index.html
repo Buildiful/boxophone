@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#102c46">
+  <meta name="description" content="Boxophone by Buildiful® — a free browser-based musical instrument studio. Play grand piano with a computer keyboard, touch, mouse or MIDI controller.">
+  <meta name="color-scheme" content="light">
+  <title>Boxophone by Buildiful®</title>
+  <link rel="icon" type="image/x-icon" href="https://buildiful.github.io/assets/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://buildiful.github.io/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://buildiful.github.io/assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://buildiful.github.io/assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="./styles.css">
+  <script defer src="./buildiful-analytics-consent.js" data-measurement-id="G-TG14RBXLTF" data-tool-name="Boxophone" data-privacy-url="./privacy.html"></script>
+  <script defer src="./src/audio.js"></script>
+  <script defer src="./src/recorder.js"></script>
+  <script defer src="./src/midi.js"></script>
+  <script defer src="./src/app.js"></script>
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brandgroup">
+        <a class="brandlink" href="https://buildiful.com" target="_blank" rel="noopener noreferrer" aria-label="Buildiful website"><img src="https://buildiful.github.io/assets/buildiful-logo-white.png" alt="Buildiful®" class="brandlogo"></a>
+        <span class="branddivider" aria-hidden="true"></span>
+        <strong class="appname">Boxophone</strong>
+      </div>
+      <div class="headright"><button id="helpBtn" class="topbutton" type="button" aria-expanded="false" aria-controls="helpPanel">How to play?</button></div>
+    </header>
+    <main class="main">
+      <section class="intro">
+        <div class="intro-copy"><div class="eyebrow">A BRIEFCASE FULL OF INSTRUMENTS — NOW IN YOUR BROWSER</div><h1>Make some <em>music.</em></h1><p>Use your keyboard, tap the keys, or plug in a MIDI controller.</p></div>
+        
+      </section>
+      <section id="helpPanel" class="help-panel" hidden aria-label="How to play">
+        <div><strong>Computer keyboard</strong><p>Press a number key from 1 to 7 to select an octave (for example, 4 selects octave 4). Press A, B, C, D, E, F, or G to play that natural note in the selected octave. Hold Space for sustain; [ and ] also shift octaves. Use the on-screen black keys for sharps and flats.</p></div>
+        <div><strong>Mouse & touch</strong><p>Hold white or black keys to play; slide while holding for glissando. Use the octave arrows on phones to reach more notes.</p></div>
+        <div><strong>USB MIDI</strong><p>Select <b>Connect MIDI</b> in Chrome or Edge and grant access. Connect one or more class-compliant MIDI keyboards. The first two can use independent octave ranges; additional controllers play their own note pitches.</p></div>
+      </section>
+      <section class="studio-grid" aria-label="Instrument studio">
+        <div class="instrument-panel panel">
+          <div class="section-label"><span>01</span> CHOOSE YOUR SOUND</div>
+          <div class="instrument-list" role="group" aria-label="Instrument">
+            <button class="instrument active" data-instrument="piano" type="button" aria-pressed="true"><span class="symbol piano-symbol" aria-hidden="true"><span class="piano-graphic">▥</span></span><span class="instrument-title">Grand Piano</span><span class="inst-key">01</span></button>
+            <button class="instrument instrument-unavailable" data-instrument="violin" type="button" disabled aria-label="Violin — coming soon"><span class="symbol violin-symbol" aria-hidden="true">♩</span><span class="instrument-title">Violin</span><span class="instrument-coming">Coming soon</span></button>
+            <button class="instrument instrument-unavailable" data-instrument="sax" type="button" disabled aria-label="Alto Saxophone — coming soon"><span class="symbol sax-symbol" aria-hidden="true">♬</span><span class="instrument-title">Alto Saxophone</span><span class="instrument-coming">Coming soon</span></button>
+          </div>
+          <div class="instrument-bottom"><label class="label-inline" for="volume">Volume <span id="volumeValue">78%</span></label><input id="volume" type="range" min="0" max="100" step="1" value="78" aria-label="Volume"><p>Use headphones for the clearest sound.</p></div>
+        </div>
+        <div class="stage-panel panel">
+          <div class="stage-top"><div class="section-label"><span>02</span> YOUR STAGE</div><div id="audioStatus" class="status-dot" role="status">Tap a key to start</div></div>
+          <div class="stage-center"><div class="decoration" aria-hidden="true"><span class="circle-line c1"></span><span class="circle-line c2"></span><span class="circle-line c3"></span></div><div class="playing-note"><span class="overline">NOW PLAYING</span><div id="noteDisplay" class="note-display" aria-live="off">—</div><div id="noteFrequency" class="note-frequency">Play your first note</div></div><div class="visualizer" id="visualizer" aria-hidden="true"></div></div>
+          <div class="stage-actions"><button id="demoBtn" type="button" class="button subtle">♪ Hear a demo</button><button id="sustainBtn" type="button" class="button subtle toggle" aria-pressed="false">Sustain <span id="sustainState">Off</span></button><button id="panicBtn" type="button" class="button subtle" title="Stop any stuck notes">All notes off</button></div>
+        </div>
+      </section>
+      <section class="keyboard-panel panel" aria-label="Playable keyboard">
+        <div class="keyboard-toolbar"><div><div class="section-label"><span>03</span> PLAY SOMETHING</div><p class="subdued">Play with your computer keyboard, mouse or touch.</p></div><div class="range-controls"><button id="octaveDown" type="button" aria-label="Lower keyboard by one octave" title="Lower octave">−</button><span id="rangeLabel" aria-live="polite">Octave 4 · C4 – C6</span><button id="octaveUp" type="button" aria-label="Raise keyboard by one octave" title="Raise octave">+</button></div></div>
+        <div class="keybed-wrap" id="keybedScroll"><div class="keybed" id="keybed" role="group" aria-label="Musical piano keyboard"></div></div>
+        <div class="keyboard-note"><span>Computer: <kbd>1</kbd>–<kbd>7</kbd> chooses octave · <kbd>A</kbd>–<kbd>G</kbd> plays notes</span><span class="keyhint">Hold <kbd>Space</kbd> for sustain · <kbd>[</kbd> / <kbd>]</kbd> shifts octaves</span></div>
+      </section>
+      <section class="bottom-grid">
+        <div class="panel midi-panel"><div class="panel-heading"><div><div class="section-label"><span>04</span> USB MIDI CONTROLLERS</div><p>Play with one or more class-compliant MIDI keyboard.</p></div><button id="connectMidiBtn" type="button" class="button dark">Connect MIDI</button></div><div id="midiStatus" class="midi-status" role="status">Not connected · Web MIDI works best in Chrome or Edge over HTTPS.</div><div class="midi-ranges"><label>Low keyboard <select id="lowOctave" aria-label="Low MIDI keyboard octave"><option value="1">C1</option><option value="2">C2</option><option value="3" selected>C3</option><option value="4">C4</option><option value="5">C5</option><option value="6">C6</option></select><small id="lowDevice">Waiting for first controller</small></label><label>High keyboard <select id="highOctave" aria-label="High MIDI keyboard octave"><option value="1">C1</option><option value="2">C2</option><option value="3">C3</option><option value="4">C4</option><option value="5" selected>C5</option><option value="6">C6</option></select><small id="highDevice">Waiting for second controller</small></label></div><div class="midi-foot"><label class="checkbox-inline"><input type="checkbox" id="splitMidi" checked> Independent octave ranges</label><button id="swapMidiBtn" class="linkbtn" type="button">Swap low / high controllers</button></div></div>
+        <div class="panel creative-panel"><div class="section-label"><span>05</span> KEEP YOUR CREATION</div><h2>Capture the moment.</h2><p>Record your performance as MIDI. Export a small, editable <code>.mid</code> file to open in music software.</p><div class="recordbar"><div><b id="recordTime">00:00</b><small id="recordStatus">Ready to record</small></div><button id="recordBtn" type="button" class="button record"><span class="recdot"></span><span id="recordButtonLabel">Record</span></button><button id="exportBtn" type="button" class="button outline" disabled>↓ Export MIDI</button></div><p class="fine">MIDI stores notes and timing, not recorded audio.</p></div>
+      </section>
+      <section class="panel practice-panel" aria-labelledby="practiceTitle"><div class="practice-left"><div class="section-label"><span>06</span> PLAY A LITTLE CHALLENGE</div><h2 id="practiceTitle">Learn one note at a time.</h2><p>Follow a familiar melody, hit each target note, and build your streak.</p><label class="practice-select">Song <select id="songSelect"><option value="twinkle">Twinkle, Twinkle, Little Star</option><option value="ode">Ode to Joy</option><option value="frere">Frère Jacques</option></select></label><button id="practiceBtn" type="button" class="button dark">Start practice →</button></div><div class="practice-right"><div class="practice-stats"><span>PROGRESS <b id="practiceProgress">0 / 0</b></span><span>STREAK <b id="practiceStreak">0</b></span></div><div class="target-label">NEXT NOTE</div><strong id="targetNote" class="target-note">♪</strong><div id="practiceFeedback" class="practice-feedback">Start a song to see your first note.</div></div></section>
+    </main>
+    <footer class="footer"><div><b>Boxophone</b> <span>by Buildiful®</span> · Version 1.0.0</div><div class="footer-links"><a href="./privacy.html">Privacy</a><button data-buildiful-analytics-settings type="button">Analytics settings</button><a href="https://github.com/Buildiful/boxophone" target="_blank" rel="noopener noreferrer">GitHub</a></div></footer>
+  </div>
+</body>
+</html>
